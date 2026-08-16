@@ -82,8 +82,6 @@ export function proxy(req: NextRequest): NextResponse {
   return NextResponse.next();
 }
 
-export const runtime = "nodejs";
-
 export const config = {
   // Run on every request except Next.js internals and the favicon. The /api/*
   // and /ws/* paths are explicitly handled above (rewritten to the backend);
