@@ -20,7 +20,10 @@ export function apiUrl(path: string): string {
  */
 export function wsUrl(path: string): string {
   if (typeof window !== "undefined") {
-    return `wss://tailscale-termux.tail2888c5.ts.net${path}`;
+    const base =
+      process.env.NEXT_PUBLIC_WS_URL ||
+      "wss://receivers-newspapers-deck-automobiles.trycloudflare.com";
+    return `${base}${path}`;
   }
   return path;
 }
