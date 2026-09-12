@@ -8,6 +8,7 @@ import type {
   StreamEvent,
   StreamEventType,
 } from "../model/protocol";
+import { wsUrl } from "@/shared/api/client";
 import {
   TurnRuntimeClient,
   type RuntimeConnectionState,
@@ -73,6 +74,7 @@ export class UnifiedTurnClient {
 
   constructor(onEvent: (event: StreamEvent) => void, onClose?: () => void) {
     this.runtime = new TurnRuntimeClient({
+      url: wsUrl("/ws"),
       onEvent(event) {
         const streamEvent = toStreamEvent(event);
         if (streamEvent) onEvent(streamEvent);
