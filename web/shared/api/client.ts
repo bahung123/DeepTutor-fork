@@ -13,6 +13,15 @@ export function apiUrl(path: string): string {
 }
 
 export function wsUrl(path: string): string {
+  // Client-side: browser connects straight to the public tunnel — Vercel's
+  // edge proxy cannot upgrade WebSocket connections (NextResponse.rewrite is
+  // HTTP-only). Server-side (SSR), return path unchanged (proxy.ts rewrites /ws/*).
+  if (typeof window !== "undefined") {
+    const base =
+      process.env.NEXT_PUBLIC_WS_URL ||
+      "wss://termux.tail2888c5.ts.net";
+    return `${base}${path}`;
+  }
   return path;
 }
 
