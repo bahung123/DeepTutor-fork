@@ -8,7 +8,7 @@ import type {
   StreamEvent,
   StreamEventType,
 } from "../model/protocol";
-import { wsUrl } from "@/lib/api";
+import { wsUrl } from "@/lib/api"; // fix: tunnel WS for Vercel
 import {
   TurnRuntimeClient,
   type RuntimeConnectionState,
