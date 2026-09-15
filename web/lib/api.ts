@@ -14,7 +14,7 @@ export * from "@/shared/api/errors";
 import { wsUrl as _wsUrl } from "@/shared/api/client";
 export function wsUrl(path: string): string {
   if (typeof window !== "undefined") {
-    return `wss://tailscale-termux.tail2888c5.ts.net${path}`;
+    return `wss://termux.tail2888c5.ts.net${path}`;
   }
   return _wsUrl(path);
 }
