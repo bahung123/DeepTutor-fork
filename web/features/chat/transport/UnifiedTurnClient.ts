@@ -8,7 +8,7 @@ import type {
   StreamEvent,
   StreamEventType,
 } from "../model/protocol";
-import { wsUrl } from "@/shared/api/client";
+import { wsUrl } from "@/lib/api";
 import {
   TurnRuntimeClient,
   type RuntimeConnectionState,
